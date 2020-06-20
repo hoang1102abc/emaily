@@ -5,13 +5,8 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import Header from "./Header";
 import Landing from "./Landing";
-
-const Dashboard = () => {
-  return <h2>Dashboard</h2>;
-};
-const SurveyNew = () => {
-  return <h2>SurveyNew</h2>;
-};
+import Dashboard from "./Dashboard";
+import SurveyNew from "./surveys/SurveyNew";
 
 class App extends React.Component {
   componentDidMount() {
@@ -20,16 +15,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Route path="/" exact component={Landing} />
-            <Route path="/surveys" exact component={Dashboard} />
-            <Route path="/surveys/new" component={SurveyNew} />
-          </div>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Header />
+          <Route path="/" exact component={Landing} />
+          <Route path="/surveys" exact component={Dashboard} />
+          <Route path="/surveys/new" component={SurveyNew} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
